@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 git pull origin main;
 
@@ -10,7 +10,9 @@ function doIt() {
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~;
+	echo "This should come here";	
 	source ~/.bash_profile;
+	echo "This should end here";
 }
 
 doIt;
