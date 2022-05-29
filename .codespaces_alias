@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# Some codespace shortcut I use
+alias killports="fuser -k 59228/tcp && fuser -k 53760/tcp && fuser -k 59330/tcp"
+alias build_service="dotnet build $VSCLK_ROOT"
+alias clean_service="dotnet clean $VSCLK_ROOT"
+alias build_agent="dotnet build $CASCADE_ROOT/src/VSOnline"
+alias clean_agent="dotnet clean $CASCADE_ROOT/src/VSOnline"
+alias cdnginx="cd /workspaces/codespaces-service/nginx"
+alias cdreporoot="cd $CODESPACE_ROOT"
+
+# Rename codespace 
+function rename_cs() {
+    gh api -X PATCH user/codespaces/$CODESPACE_NAME -f display_name="${1}"
+}
+
+# Some PFS helper notes I use
+alias pfs_help='echo "./setup.sh --pfs-tag kumarad-debug --pfa-tag kumarad-debug
+
+./install-tf.sh 
+ls -la
+./setup.sh 
+./build-debug-pfs.sh 
+./setup.sh --pfs-tag kumarad-debug --pfa-tag kumarad-debug
+pwd
+ls -la
+./start.sh 
+
+
+
+./build/port-forwarding/watch-pfs.sh 
+stern web-port-forwarding-web-api --tail=0 -o=json
+az aks get-credentials -n kumarad-cluster -g kumarad-pfs --sub 86642df6-843e-4610-a956-fdd497102261    
+stern web-port-forwarding-web-api --tail=0 -o=json
+./build/port-forwarding/watch-pfs.sh 
+az login
+docker ps
+docker logs 460
+docker logs 46d
+
+
+======
+Outputs:
+
+cluster_external_ip = "20.99.191.65"
+custer_context_command = "az aks get-credentials -n kumarad-cluster -g kumarad-pfs --sub 86642df6-843e-4610-a956-fdd497102261"
+serviceBusNamespaceName = "kumaradsb"
+serviceBusResourceGroupName = "kumarad-pfs"
+update_portal_chart = "helm upgrade portal ../../src/services/containers/VsClk.Portal.WebSite/Charts/vsclk-portal-website -f ../../src/services/deploy/charts/common/vsclk-online-dev-alias.yaml -f ../../src/services/deploy/charts/common/values.dev-generated.yaml"
+update_web_chart = "helm upgrade web ../../bin/debug/Deploy/web -f ../../bin/debug/Deploy/web/values.dev-alias.yaml -f ../../bin/debug/Deploy/web/values.dev-generated.yaml"
+"'
+
+# Some gh/gh helper notes I use
+alias gh_help='echo "1. script/server or script/server --debug or script/server --codespaces —-debug
+	2. bin/toggle-feature-flag enable codespaces_developer monalisa
+	3. bin/toggle-feature-flag enable codespaces_prebuild_settings monalisa
+	4. binding.pry 
+	5. bin/rails routes -c Codespaces
+	6. rails test test/integration/api/internal/codespaces_test.rb:509
+	7. bin/programmatic-access update or bin/safe-ruby script/programmatic-access update
+"'

@@ -14,6 +14,7 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias g="git"
+alias printenv="env -0 | sort -z | tr '\0' '\n'"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -146,3 +147,41 @@ alias reload="exec ${SHELL} -l"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# print the list of all the helpful github commands
+alias git_help='echo "git push origin initial_setup:mainline
+git rebase -i HEAD~2
+git branch branchname <sha1-of-commit>
+git pull origin mainline —rebase
+git pull --rebase origin mainline
+
+git diff-tree --no-commit-id --name-only -r bd61ad98
+git checkout --track origin/newsletter
+
+GIT_COMMITTER_DATE="$(date)" git commit --amend --no-edit --date "$(date)"
+
+https://medium.com/@gabriellamedas/git-rebase-and-git-rebase-onto-a6a3f83f9cce
+git rebase mainline other_branch
+
+git push origin <localBranch:remoteBranch> 
+OR 
+git push origin branchName 
+git checkout -b branchxyz origin/branchxyz
+
+$ git push <remote> <local_branch>:<remote_name>
+git push -u origin feature
+git push origin <your_branch_name> -f 
+
+
+git checkout -b branchxyz origin/branchxyz
+
+git reset --hard origin/dev/kumarad/sssddddffff"
+'
+
+# Print find_help
+alias find_help='echo "grep -rnw '/path/to/somewhere/' -e 'pattern'
+
+find YOUR_STARTING_DIRECTORY -type d -name "*99966*" -print
+
+find . -name "*fileName*"
+"'
