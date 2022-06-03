@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Some codespace shortcut I use
 alias killports="fuser -k 59228/tcp && fuser -k 53760/tcp && fuser -k 59330/tcp"

@@ -15,7 +15,7 @@ git clone https://github.com/aditya30394/dotfiles.git && cd dotfiles && source b
 To update, `cd` into your local `dotfiles` repository and then:
 
 ```bash
-source bootstrap.sh
+source install.sh
 ```
 
 ### Git-free install
