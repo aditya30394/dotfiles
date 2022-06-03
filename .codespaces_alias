@@ -4,10 +4,12 @@
 alias killports="fuser -k 59228/tcp && fuser -k 53760/tcp && fuser -k 59330/tcp"
 alias build_service="dotnet build $VSCLK_ROOT"
 alias clean_service="dotnet clean $VSCLK_ROOT"
-alias build_agent="dotnet build $CASCADE_ROOT/src/VSOnline"
-alias clean_agent="dotnet clean $CASCADE_ROOT/src/VSOnline"
+alias build_agent="dotnet build $CASCADE_ROOT/dirs.proj"
+alias clean_agent="dotnet clean $CASCADE_ROOT/dirs.proj"
 alias cdnginx="cd /workspaces/codespaces-service/nginx"
 alias cdreporoot="cd $CODESPACE_ROOT"
+alias cdshared="cd /workspaces/.codespaces/shared"
+alias cdpersistedshared="cd /workspaces/.codespaces/.persistedshare"
 
 # Rename codespace 
 function rename_cs() {
