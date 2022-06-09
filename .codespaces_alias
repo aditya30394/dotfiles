@@ -10,6 +10,7 @@ alias cdnginx="cd /workspaces/codespaces-service/nginx"
 alias cdreporoot="cd $CODESPACE_ROOT"
 alias cdshared="cd /workspaces/.codespaces/shared"
 alias cdpersistedshared="cd /workspaces/.codespaces/.persistedshare"
+alias fixdevstamp="devtool setupDevStamp -p 1 -ar 0"
 
 # Rename codespace 
 function rename_cs() {
