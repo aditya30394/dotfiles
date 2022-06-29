@@ -11,6 +11,7 @@ alias cdreporoot="cd $CODESPACE_ROOT"
 alias cdshared="cd /workspaces/.codespaces/shared"
 alias cdpersistedshared="cd /workspaces/.codespaces/.persistedshare"
 alias fixdevstamp="devtool setupDevStamp -p 1 -ar 0"
+alias mydevstampurl='echo "https://codespaces.servicebus.windows.net/kumarad"'
 
 # Rename codespace 
 function rename_cs() {
@@ -61,4 +62,28 @@ alias gh_help='echo "1. script/server or script/server --debug or script/server 
 	5. bin/rails routes -c Codespaces
 	6. rails test test/integration/api/internal/codespaces_test.rb:509
 	7. bin/programmatic-access update or bin/safe-ruby script/programmatic-access update
+"'
+
+# How to log body of requests
+alias http_help='echo "app.Use(async (context, next) =>
+            {
+                string requestId = "unknown";
+                if (context.Request.Headers.TryGetValue("X-Request-ID", out var requestIdValues) && requestIdValues.FirstOrDefault() is string singleRequestId && !string.IsNullOrEmpty(singleRequestId))
+                {
+                    requestId = singleRequestId;
+                }
+
+                context.GetLogger()?.AddBaseValue("GitHubRequestId", requestId);
+                context.GetLogger()?.AddBaseValue("ContextRequestBody1", context.Request.Body.ToString());
+
+                var initialBody = context.Request.Body;
+
+                using (var bodyReader = new StreamReader(context.Request.Body))
+                {
+                    string body = await bodyReader.ReadToEndAsync();
+                    Console.WriteLine(body);
+                    context.GetLogger()?.AddBaseValue("ContextRequestBody2", body);
+                    await next.Invoke();
+                }                
+            });
 "'
