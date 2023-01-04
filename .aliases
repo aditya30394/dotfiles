@@ -16,6 +16,18 @@ alias p="cd ~/projects"
 alias g="git"
 alias printenv="env -0 | sort -z | tr '\0' '\n'"
 
+# leetcode
+function rename_solution() {
+    for file in $(find ./leetcode/ -name 'solution.py')
+    do
+      mv $file $(echo "$file" | sed -r 's|.py|.cpp|g')
+    done
+}
+
+function add_lc_problem() {
+    mkdir problems && cd problems && npx leetcode-problems-crawler -r "${1}" && cd .. && cp -R problems/ leetcode && rm -rf problems && rename_solution;
+}
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
