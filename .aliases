@@ -18,7 +18,7 @@ alias printenv="env -0 | sort -z | tr '\0' '\n'"
 
 # leetcode
 function rename_solution() {
-    for file in $(find ./leetcode/ -name 'solution.py')
+    for file in $(find ./leetcode/ -name 'Solution.py')
     do
       mv $file $(echo "$file" | sed -r 's|.py|.cpp|g')
     done
