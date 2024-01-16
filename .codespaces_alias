@@ -12,6 +12,7 @@ alias cdshared="cd /workspaces/.codespaces/shared"
 alias cdpersistedshared="cd /workspaces/.codespaces/.persistedshare"
 alias fixdevstamp="devtool setupDevStamp -p 1 -ar 0"
 alias mydevstampurl='echo "https://codespaces.servicebus.windows.net/kumarad"'
+alias runts="/workspaces/codespaces-service/bin/service/debug/TokenService/Microsoft.VsSaaS.Services.TokenService"
 
 # Rename codespace 
 function rename_cs() {
