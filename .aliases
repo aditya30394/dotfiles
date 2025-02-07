@@ -197,3 +197,5 @@ find YOUR_STARTING_DIRECTORY -type d -name "*99966*" -print
 
 find . -name "*fileName*"
 "'
+
+alias git_wsl='git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"'
