@@ -199,3 +199,8 @@ find . -name "*fileName*"
 "'
 
 alias git_wsl='git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"'
+
+alias glp='git log --pretty=format:"%C(yellow)%h%Creset - %C(green)%an%Creset, %ar : %s"'
+alias gb='git branch -v'
+alias glt='git log --graph --oneline --all --decorate'
+alias cont='git rebase --continue'
